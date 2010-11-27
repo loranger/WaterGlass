@@ -19,7 +19,6 @@ Basically, it's a kind of wrapper which extends DOMDocument. Once the template i
 * A real Getting started article
 * A Documentation
 * Caching system using [APC](http://php.net/manual/book.apc.php)
-* Global variables replacements ( ie : `WaterGlass::setVars( $array)` )
 * Template inheritance
 
 **Getting started**

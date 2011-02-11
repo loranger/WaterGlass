@@ -31,7 +31,7 @@ class WaterGlass extends DOMDocument
 
 	private function loadFromString( $string )
 	{
-		@$this->loadHTML( $filename );
+		@$this->loadHTML( $string );
 	}
 
 	private function fetchVars()

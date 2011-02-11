@@ -132,10 +132,24 @@ class WaterGlass extends DOMDocument
 	{
 		return $this->inject($expression, $value, true);
 	}
+	
+	function setAll($array)
+	{
+		foreach ($array as $expression => $value) {
+			$this->set($expression, $value);
+		}
+	}
 
 	function add($expression, $value)
 	{
 		return $this->inject($expression, $value);
+	}
+	
+	function addAll($array)
+	{
+		foreach ($array as $expression => $value) {
+			$this->add($expression, $value);
+		}
 	}
 
 	function loop($expression, $value)

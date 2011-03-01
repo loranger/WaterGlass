@@ -103,8 +103,8 @@ class WaterGlass extends DOMDocument
 
 			foreach ($elements as $element)
 			{
-				$tmpDoc = new DOMDocument();
-				@$tmpDoc->loadHTML($value);
+				$tmpDoc = new DOMDocument($this->xmlVersion, $this->xmlEncoding);
+				@$tmpDoc->loadHTML( utf8_decode($value) );
 
 				if( $replace_content && $element->hasChildNodes() )
 				{

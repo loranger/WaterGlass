@@ -101,9 +101,11 @@ class WaterGlass extends DOMDocument
 				$elements = array($clone);
 			}
 
-			foreach ($elements as $element) {
-				$fragment = $this->createDocumentFragment();
-				$fragment->appendXML( $value );
+			foreach ($elements as $element)
+			{
+				$tmpDoc = new DOMDocument();
+				@$tmpDoc->loadHTML($value);
+
 				if( $replace_content && $element->hasChildNodes() )
 				{
 					foreach( $element->childNodes as $child)
@@ -111,7 +113,15 @@ class WaterGlass extends DOMDocument
 						$element->removeChild( $child );
 					}
 				}
-				$element->appendChild($fragment);
+
+				foreach ($tmpDoc->getElementsByTagName('body')->item(0)->childNodes as $nodes)
+				{
+					$children = ( !$nodes->hasChildNodes() ) ? array($nodes) : $nodes->childNodes;
+					foreach ($children as $child)
+					{
+						$element->appendChild( $this->importNode($child, true) );
+					}
+				}
 			}
 		}
 	}

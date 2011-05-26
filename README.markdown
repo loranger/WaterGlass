@@ -24,3 +24,5 @@ Basically, it's a kind of wrapper which extends DOMDocument. Once the template i
 **Getting started**
 
 Take a look at demo.php and demo_template.html for a real world example
+
+`♡ Copying is an act of love. Please copy.`

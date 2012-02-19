@@ -7,7 +7,7 @@ class WaterGlass extends DOMDocument
 
 	function __construct( $content, $var_tag_name = 'wg' )
 	{
-		parent::__construct();
+		parent::__construct('1.0', 'utf-8');
 
 		$this->strictErrorChecking = false;
 		$this->preserveWhiteSpace = false;
@@ -20,7 +20,7 @@ class WaterGlass extends DOMDocument
 		{
 			$this->loadFromString($content);
 		}
-		
+
 		$this->setVariableTag( $var_tag_name );
 	}
 
@@ -41,7 +41,7 @@ class WaterGlass extends DOMDocument
 			foreach ($list as $element)
 			{
 				$this->customVars[ $element->getAttribute('id') ] = $element;
-			}			
+			}
 		}
 	}
 
@@ -125,7 +125,7 @@ class WaterGlass extends DOMDocument
 			}
 		}
 	}
-	
+
 	function setVariableTag( $name )
 	{
 		$this->varTagName = $name;
@@ -142,7 +142,7 @@ class WaterGlass extends DOMDocument
 	{
 		return $this->inject($expression, $value, true);
 	}
-	
+
 	function setAll($array)
 	{
 		foreach ($array as $expression => $value) {
@@ -154,7 +154,7 @@ class WaterGlass extends DOMDocument
 	{
 		return $this->inject($expression, $value);
 	}
-	
+
 	function addAll($array)
 	{
 		foreach ($array as $expression => $value) {

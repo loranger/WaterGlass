@@ -3,34 +3,54 @@
 <head>
   <meta charset='utf-8'>
 
-  <title>loranger/WaterGlass @ GitHub</title>
-
+  <title>WaterGlass @ GitHub</title>
+  <link href="google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="google-code-prettify/prettify.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Titan+One' rel='stylesheet' type='text/css'>
   <style type="text/css">
     body {
       margin-top: 1.0em;
-      background-color: #8240d3;
+      background-color: #F2F2F2;
       font-family: Helvetica, Arial, FreeSans, san-serif;
+      font-family: 'Titan One', cursive;
       color: #000000;
     }
+	body *
+	{
+		font-weight: normal;
+	}
     #container {
       margin: 0 auto;
       width: 700px;
     }
-    h1 { font-size: 3.8em; color: #7dbf2c; margin-bottom: 3px; }
+	h1, h2, h3, a
+	{
+		color: #66CCFF;
+	}
+	h2
+	{
+		color: #5C6E80;
+	}
+    h1 { font-size: 3.8em; margin-bottom: 3px; text-shadow: 5px 5px 2px #5C6E80;}
     h1 .small { font-size: 0.4em; }
     h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #7dbf2c; }
-    h3 { text-align: center; color: #7dbf2c; }
-    a { color: #7dbf2c; }
+    h2 { font-size: 1.5em; }
+    h3 { text-align: center; }
+    a {}
     .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
     .download { float: right; }
     pre { background: #000; color: #fff; padding: 15px;}
+	pre.prettyprint
+	{
+		background-color: #FFF;
+		border: none;
+	}
     hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
     .footer { text-align:center; padding-top:30px; font-style: italic; }
   </style>
 </head>
 
-<body>
+<body onload="prettyPrint();">
   <a href="https://github.com/loranger/WaterGlass"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
   <div id="container">
@@ -42,30 +62,68 @@
         <img border="0" width="90" src="https://github.com/images/modules/download/tar.png"></a>
     </div>
 
-    <h1><a href="https://github.com/loranger/WaterGlass">WaterGlass</a>
-      <span class="small">by <a href="https://github.com/loranger">loranger</a></span></h1>
+    <h1><a href="https://github.com/loranger/WaterGlass">WaterGlass</a></h1>
 
     <div class="description">
       Template dans un verre d'eau
     </div>
 
-    
 
-    
 
-    
 
-    
 
-    
-      <h2>Authors</h2>
-      <p>loranger (loranger@free.fr)<br/>      </p>
-    
 
-    
+
+
+
+
+      <h2>Getting Started</h2>
+	  Using mytemplate.html
+        <pre class="prettyprint">&lt;html><br />
+&lt;body><br />
+	&lt;h2>My Title&lt;/h2><br />
+	&lt;div id="mytext">This is a text&lt;/div><br />
+	&lt;div class="extra">Here is an extra div&lt;/div><br />
+	&lt;ul><br />
+		&lt;li>list item&lt;/li><br />
+	&lt;/ul><br />
+&lt;/body><br />
+&lt;/html></pre>
+
+	  with WaterGlass
+	  
+      <pre class="prettyprint">&lt;?php<br />
+	require_once('WaterGlass.php');<br />
+	$template = new WaterGlass('templates/mytemplate.html');<br /><br />
+
+	$template->set('h2', "I'm so exciting");<br />
+	$template->add('#mytext', ", the most textual I can write.");<br />
+	$template->set('div.extra', "extra information is extra");<br />
+	$template->loop('ul li', array('one', 'two', 'three', 'four'));<br /><br />
+
+	echo $template;<br />
+?></pre>
+	will output
+	
+<pre class="prettyprint">&lt;?xml version="1.0"?><br />
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"><br />
+&lt;html><br />
+  &lt;body><br />
+  &lt;h2>I'm so exciting&lt;/h2><br />
+&lt;div id="mytext">This is a text, the most textual I can write.&lt;/div><br />
+&lt;div class="extra">extra information is extra&lt;/div><br />
+&lt;ul><br />
+	&lt;li>one&lt;/li><br />
+	&lt;li>two&lt;/li><br />
+	&lt;li>three&lt;/li><br />
+	&lt;li>four&lt;/li><br />
+&lt;/ul><br />
+&lt;/body><br />
+&lt;/html></pre>
+
       <h2>Contact</h2>
       <p>Laurent Goussard (loranger@free.fr)<br/>      </p>
-    
+
 
     <h2>Download</h2>
     <p>

@@ -173,7 +173,7 @@ class WaterGlass extends DOMDocument
 		{
 			$node->parentNode->removeChild( $node );
 		}
-		return $this->saveXML();
+		return $this->saveHTML();
 	}
 
 }
